@@ -24,6 +24,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.guesstheword.R
@@ -54,17 +55,9 @@ class GameFragment : Fragment() {
 
         viewModel=ViewModelProviders.of(this).get(GameViewModel::class.java)
 
+        binding.gameViewModel= viewModel
 
 
-        binding.correctButton.setOnClickListener {
-            viewModel.onCorrect()
-
-
-        }
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-
-       }
 
         viewModel.score.observe(this, Observer { newScore ->
             binding.scoreText.text=newScore.toString()
