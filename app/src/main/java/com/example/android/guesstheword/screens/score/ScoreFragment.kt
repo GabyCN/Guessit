@@ -58,17 +58,18 @@ class ScoreFragment : Fragment() {
 
         binding.scoreViewModel = viewModel
 
-        // Inflate view and obtain an instance of the binding class.
+        binding.setLifecycleOwner(this)
 
+        // Inflate view and obtain an instance of the binding class.
 
 
 
 
         // Get args using by navArgs property delegate
 
-        viewModel.score.observe(this, Observer { newScore ->
+      /*  viewModel.score.observe(this, Observer { newScore ->
             binding.scoreText.text=newScore.toString()
-        })
+        })*/
 
 
 
